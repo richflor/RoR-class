@@ -25,7 +25,7 @@ services:
   api-ruby:
     build: 
       context: .
-      dockerfile: api/Dockerfile
+      dockerfile: Dockerfile
     command: /bin/bash -c "while sleep 1000 ; do :; done"
     ports:
       - '3000:3000'

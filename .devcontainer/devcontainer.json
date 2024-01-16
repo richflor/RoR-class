@@ -3,7 +3,7 @@
 {
 	"name": "Ruby on Rails Setup",
 	"dockerComposeFile": "../docker-compose.yml",
-	"initializeCommand" : "fix wls issue",
+	"initializeCommand": "echo 'fix WLS issue'",
 	"service": "api-ruby", // Le nom du service à utiliser dans le docker-compose.yml
 	"workspaceFolder": "/home/dev",
 	"customizations": {

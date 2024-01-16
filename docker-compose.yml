@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+
+  dbms:
+    image: mariadb
+    container_name: mysql-ruby
+    ports:
+      - '3306:3306'
+    environment: 
+      - MYSQL_ALLOW_EMPTY_PASSWORD=false
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_PASSWORD=rootpassword
+      - MYSQL_USER=admin
+      - MYSQL_DATABASE=todolist
+    volumes:
+      - ./sql/dbms-data:/var/lib/mysql
+      - ./sql/mariadb.cnf:/etc/mysql/mariadb.cnf
+    command: 
+      - "--character-set-server=utf8mb4"
+      - "--collation-server=utf8mb4_unicode_ci"
+    networks:
+      - net-api
+
+  api-ruby:
+    build: 
+      context: .
+      dockerfile: api/Dockerfile
+    command: /bin/bash -c "while sleep 1000 ; do :; done"
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./:/home/dev:cached
+    depends_on:
+      - dbms
+    networks:
+      - net-api
+    environment: 
+      - DB_NAME=db_todolist
+      - DB_USER=admin
+      - DB_PASSWORD=rootpassword
+      - DB_HOST=dbms
+      - DB_NAME=todolist
+
+networks:
+  net-api:
+    driver: bridge
+    name: net-api

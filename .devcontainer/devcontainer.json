@@ -1,0 +1,24 @@
+//Contenue à copier coller dans le fichier devcontainer.json 
+
+{
+	"name": "Ruby on Rails Starter",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "ruby-api", // Le nom du service à utiliser dans le docker-compose.yml
+	"workspaceFolder": "/home/dev",
+	"customizations": {
+	  "settings": {},
+	  "extensions": [
+	],
+	"vscode": {
+		"extensions": [
+			"wingrunr21.vscode-ruby",
+			"rebornix.Ruby",
+			"aliariff.vscode-erb-beautify",
+			"aki77.rails-db-schema",
+			"Shopify.ruby-lsp"
+		]
+	}
+	},
+	"forwardPorts": [3000]
+  }
+  

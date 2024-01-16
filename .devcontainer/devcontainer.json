@@ -1,9 +1,9 @@
 //Contenue à copier coller dans le fichier devcontainer.json 
 
 {
-	"name": "Ruby on Rails Starter",
+	"name": "Ruby on Rails Setup",
 	"dockerComposeFile": "../docker-compose.yml",
-	"service": "ruby-api", // Le nom du service à utiliser dans le docker-compose.yml
+	"service": "api-ruby", // Le nom du service à utiliser dans le docker-compose.yml
 	"workspaceFolder": "/home/dev",
 	"customizations": {
 	  "settings": {},

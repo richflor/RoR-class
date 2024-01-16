@@ -16,6 +16,7 @@ gem "tzinfo-data", platforms: %i[windows jruby]
 gem "bootsnap", require: false
 
 gem "htmlbeautifier"
+gem "ruby-lsp"
 
 group :development, :test do
   gem "debug", platforms: %i[mri windows]
